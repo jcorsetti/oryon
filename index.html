@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Oryon: Open-Vocabulary Object 6D Pose Estimation">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open-Vocabulary Object 6D Pose Estimation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title">Oryon: Open-Vocabulary Object 6D Pose Estimation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=UEhVxSUAAAAJ">Jaime Corsetti</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=dT1N2IUAAAAJ">Davide Boscaini</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=wQVWb98AAAAJ">Changjae Oh</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=KZmcljoAAAAJ">Andrea Cavallaro</a><sup>4,5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=BQ7li6AAAAAJ">Fabio Poiesi</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>TeV - Fondazione Bruno Kessler</span>
+              <span class="author-block"><sup>2</sup>University of Trento</span>
+              <p>
+
+              </p>
+              <span class="author-block"><sup>3</sup>CIS - Queen Mary University of London</span>
+              <span class="author-block"><sup>4</sup>Idiap Research Institute</span>
+              <span class="author-block"><sup>5</sup>EPFL</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark"  disabled='' style="pointer-events: none">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark"  disabled='' style="pointer-events: none">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark"  disabled='' style="pointer-events: none">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+                
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/teaser_bg.png" alt="Oryon setting compared to state-of-the-art" />
+        <p></p>
+        <h2 class="subtitle has-text-centered" style="margin-top: 30px;">
+          <b>Oryon</b> introduces the novel <b>open-vocabulary object 6D pose estimation</b> setting. Given an RGBD <b>query scene</b> 
+          and a <b>textual description</b> of the object of interest, Oryon can locate the object and estimate its pose relative to a single anchor RGBD scene.
+          In contrast to past object-driven approaches, we do not require the object 3D model or complex object onboarding procedures.
+        </h2>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Paragraph below is for the video  -->
+  <!-- <section class="hero is-light is-small has-text-centered">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+          <p>
+            We introduce the new setting of open-vocabulary object 6D pose estimation, in which a textual prompt is used to specify the object of interest. 
+            In contrast to existing approaches, in our setting:
+             (i) the object of interest is specified solely through the textual prompt, 
+             (ii) no object model (e.g. CAD or video sequence) is required at inference, 
+             (iii) the object is imaged from two different viewpoints of two different scenes,
+             (iv) the object was not observed during the training phase. 
+          </p> 
+          <p>
+            To operate in this setting, we introduce a novel approach that leverages a Vision-Language Model to segment the object of interest from two distinct scenes and to estimate its relative 6D pose. 
+            The key of our approach is a carefully devised strategy to fuse object-level information provided by the prompt with local image features, resulting in a feature space that can generalize to novel concepts. 
+          <p>
+          </p>
+            We validate our approach on a new benchmark based on two popular datasets, REAL275 and Toyota-Light, which collectively encompass 39 object instances appearing in four thousand image pairs. 
+            The results demonstrate that our approach outperforms both a well-established hand-crafted method and a recent deep learning-based baseline in estimating the relative 6D pose of objects in different scenes.
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- <hr>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Key Idea</h2>
+          <img src="" alt="IMG(?)" />
+          <div class="content has-text-justified">
+            <p>
+              Descrizione key idea
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr> -->
+      <!-- Method. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/architecture.png" alt="Architecture of Oryon" />
+          <div class="content has-text-justified">
+            <p>
+
+              We address relative pose estimation by finding the matches between the anchor scene \(A\) and the query scene \(Q\), and subsequently lifting the matches to 3D and perform registration to retrieve the final poses.
+              The textual prompt \(T\) is used to locate the object of interest in the scene pair and to guide the feature extraction process.
+              The two scenes are encoded with the CLIP image encoder \(\phi_{V}\), obtaining a pair of feature maps \(\mathbf{E}^A\), \(\mathbf{E}^Q\), while \(T\) is processed by the CLIP text encoder \(\phi_T\), obtaining the textual features \(\mathbf{e}^T\).
+            </p>
+            <p>
+              In order to relate the textual and visual features, we adopt a fusion module \(\phi_{TV}\) based on cost-aggregation, which also leverages the features from a guidance backbone \(\phi_G\).
+              A decoder architecture \(\phi_D\) is used to increase the resolution of the feature maps, thus obtaining a pair of feature map \(\mathbf{F}^A\), \(\mathbf{F}^Q\), suitable for fine-grained matching.
+              The same feature maps are processed by a segmentation head to obtain the predicted masks \(\mathbf{M}^A\), \(\mathbf{M}^Q\).
+            </p>
+            <p>
+              At training time, the feature maps are optimized by an hardest contrastive loss \(\ell_F\), while the segmentation masks are trained supervisedly by \(\ell_M\).
+              At test time, matches between \(\mathbf{F}^A\) and \(\mathbf{F}^Q\) are computed by nearest neighbor, and the masks \(\mathbf{M}^A\), \(\mathbf{M}^Q\) are used to filter the matches in order to retain only the ones on the object of interest.
+              The resulting matches converted to 3D and a point cloud registration algorithm is used  ot obtain the final pose \(T_{A \rightarrow Q}.\)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Qualitatives. -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Qualitative results on REAL275</h2>
+            <img src="./static/images/qualit_nocs.png" alt="Qualitative results on NOCS" />
+            <div class="content has-text-justified">
+              <p>
+                Oryon is evaluated on a challenging scenario in which \(A\) and \(Q\) show different scenes.
+                We compare Oryon with the results from a well-established hand-crafted baseline (SIFT) and a state-of-the art method specialized in point cloud registration with low overlap (ObjectMatch).
+                Our method shows accurate pose estimation performance even with small objects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- prompt features. -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Prompt influence on feature map</h2>
+            <img src="./static/images/prompt_dist.png" alt="Qualitative results on NOCS" />
+            <div class="content has-text-justified">
+              <p>
+                We show examples of how the feature map is influenced by the textual prompt \(T\), by visualizing the distance in the feature space with respect to a reference point on the anchor image (in green).
+                The choice of the prompt greatly influences the composition of the feature map and the performance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">Citation</h2>
+If you find Oryon useful for your work, please cite:
+<pre><code>@article{corsetti2023oryon,
+  title= {Open-vocabulary object 6D pose estimation}, 
+  author = {Corsetti, Jaime and Boscaini, Davide and Oh, Changjae and Cavallaro, Andrea and Poiesi, Fabio},
+  journal = {arxiv:}
+  year= {2023}
+}</code></pre>
+      </div>
+    </section>  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+              The webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+        <!-- @inproceedings{corsetti2023oryon,
+          title={Open-vocabulary object 6D pose estimation}, 
+          author = {Corsetti, Jaime and Boscaini, Davide and Oh, Changjae and Cavallaro, Andrea and Poiesi, Fabio},
+          year={2023},
+          booktitle={arXiv:}
+        }         -->
+</html>
