@@ -1,4 +1,4 @@
-# Nerfies
+# Oryon: Open-Vocabulary Object 6D Pose Estimation
 
 This is the repository that contains source code for the [Oryon website](https://oryon.github.io).
 The website template is from [Nerfies](https://github.com/nerfies/nerfies.github.io).
