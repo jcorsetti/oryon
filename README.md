@@ -76,6 +76,7 @@ Each line of `instance_list.txt` is structured as follows:
 `
 image_anchor_id, image_query_id, object_id
 `
+
 `annots.pkl` is structured as in REAL275.
 
 Note that each image of ShapeNet6D shows a different random background, so that we consider each image as being part of a different scene.
