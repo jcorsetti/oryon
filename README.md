@@ -1,6 +1,6 @@
 # Oryon: Open-Vocabulary Object 6D Pose Estimation
 
-This is the repository that contains source code for the [Oryon website](https://jcorsetti.github.io/oryon-website/) and its implementation to be released.
+This is the repository that contains source code for the [Oryon website](https://jcorsetti.github.io/oryon/) and its implementation to be released.
 
 ## Roadmap
 - Code release (TBD): February-March 2024 
