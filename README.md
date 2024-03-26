@@ -1,86 +1,114 @@
 # Oryon: Open-Vocabulary Object 6D Pose Estimation
 
-This is the repository that contains source code for the [Oryon website](https://jcorsetti.github.io/oryon/) and its implementation to be released.
+This is the repository that contains source code for the [Oryon website](https://jcorsetti.github.io/oryon/) and its implementation.
+This work is to be presented at CVPR'24.
+
 
 ## Roadmap
-- Code release (TBD): February-March 2024 
+
+- Code release: 26 March 2024 
 - Added test and train splits: 7 Dec 2023
 - Website and arxiv released: 4 Dec 2023
 
-## Datasets
+## Installation
+
+First of all, download `oryon_data.zip` and `pretrained_models.zip` from the release of this repository.
+The first contains the ground-truth information and the specification of the image pairs used, the second contains the third-party checkpoint used in Oryon (i.e, the tokenizer and PointDSC).
+
+Run `setup.sh` to install the environment and download the external checkpoints.
+
+## Running Oryon
+
+By default all experiments folder are created in `exp_data/`.
+This can be modified in the config file.
+Training with default settings:
+
+`
+python run_train.py exp_name=baseline
+`
+
+Run the following to obtain results with the basic 4 configurations. By default, the last checkpoint is used.
+
+`python run_test.py -cp exp_data/baseline/ dataset.test.name=nocs test.mask=predicted
+`
+
+`python run_test.py -cp exp_data/baseline/ dataset.test.name=nocs test.mask=oracle
+`
+
+`python run_test.py -cp exp_data/baseline/ dataset.test.name=toyl test.mask=predicted
+`
+
+`python run_test.py -cp exp_data/baseline/ dataset.test.name=toyl test.mask=oracle
+`
+
+
+## Dataset preparation
 
 Our data is based on three publicly available datasets:
 - [REAL275](https://github.com/hughw19/NOCS_CVPR2019), used for test. We sample from the real test partition.
-- [Toyota-Light](https://bop.felk.cvut.cz/datasets/) (TOYL), used for test. We sample from the test split from the BOP challenge. 
+- [Toyota-Light](https://bop.felk.cvut.cz/datasets/) (TOYL), used for test. We sample from real the test partition from the BOP challenge. 
 - [ShapeNet6D](https://github.com/ethnhe/FS6D-PyTorch) (SN6D), used for training. Note that SN6D itself does not provide textual annotations, but it uses object models from [ShapeNetSem](https://shapenet.org/), which do provide object names and synsets for each object model.
 
 We sample scenes from each dataset to build the training and testing partition (20000 image pairs for SN6D and 2000 for REAL275 and TOYL), and report in the following folder the scene ids and image ids used for each partition.
 
-    data
-    └── real275                  
-        ├── obj_names.json
-        ├── annots.pkl
-        └── instance_list.txt  
-    └── toyl                     
-        ├── obj_names.json
-        ├── annots.pkl
-        └── instance_list.txt  
-    └── shapenet6d                
-        ├── annots.pkl
-        └── instance_list.txt  
-    └── templates.json         
 
-In `data/templates.json` the templates used to augment the prompt are contained. 
-They are the same templates used by [CLIP in ImageNet](https://github.com/openai/CLIP/blob/main/notebooks/Prompt_Engineering_for_ImageNet.ipynb).
-See the following sections for the format of each dataset.
+### REAL275 (referred as NOCS)
 
-### REAL275
+From the [repository](https://github.com/hughw19/NOCS_CVPR2019) download the test ground-truth, the object models and the data of the `real_test` partition. This should result in three files: `obj_models.zip`, `gts.zip` and `real_test.zip`
 
-`obj_names.json` contains the map from each object id in REAL275 to the manually produced textual information used to compute the prompt.
-For each object id the associated list reports:
-1. The object name
-2. The object description used in the default setting
-3. The misleading object description used in the ablation study.
+Run the `prepare_nocs.sh` script to unzip and run the preprocessing.
 
-`instance_list.txt` contains a list of identifiers of image pair in the following format, for each line:
+By default this will create the `nocs` folder in `data`, and can be changed by modifying the above script.
 
-`
-split_name, scene_anchor_id image_anchor_id, scene_query_id image_query_id, category_id object_id
-`
-
-`split_name` referes to the split from which the image has been obtained (always `real_test` in our case).
-The scenes id refer to the index of the scene in REAL275, while the image ids are indexes of the images within a scene.
-The `category_id` is not used, as we only consider the `object_id`.
-
-`annots.pkl` contains the ground truth relative pose and the 2D ground truth matches for each image pair in `instance_list.txt`.
-Note that the translation in the ground truth pose is in meters.
-The list of matches is an array Nx4, with N the numbers of matches.
-Each match is in shape Y1,X1,Y2,X1, where Y1,X1 represent the image coordinate on the anchor image and Y2,X2 the image coordinate on the query image.
 
 ### Toyota-Light
 
-`obj_names.json` is structured as in REAL275. 
-
-`instance_list.txt` is structured as REAL275 but without the category id, in the following format for each line:
+Download the object models and the test partition from the official BOP website:
 
 `
-split_name, scene_anchor_id image_anchor_id, scene_query_id image_query_id, object_id
+wget https://bop.felk.cvut.cz/media/data/bop_datasets/tyol_models.zip
 `
 
-`annots.pkl` is structured as in REAL275.
+`
+wget https://bop.felk.cvut.cz/media/data/bop_datasets/tyol_test_bop19.zip
+`
+
+Run the `prepare_toyl.sh` script to unzip and run the preprocessing.
+
+By default this will create the `toyl` folder in `data`, and can be changed by modifying the above script.
+
 
 ### ShapeNet6D
 
-Each line of `instance_list.txt` is structured as follows:
+Download the images from the official repository of [ShapeNet6D](https://github.com/ethnhe/FS6D-PyTorch), and the object models of ShapeNet from [HuggingFace](https://huggingface.co/datasets/ShapeNet/ShapeNetSem-archive).
 
-`
-image_anchor_id, image_query_id, object_id
-`
-
-`annots.pkl` is structured as in REAL275.
+Run the `prepare_sn6d.sh` script to unzip and run the preprocessing.
 
 Note that each image of ShapeNet6D shows a different random background, so that we consider each image as being part of a different scene.
 ShapeNet6D provides a map from their object ids to the object ids of the original ShapeNetSem: we use this map to associated the object name and synonym sets of ShapeNetSem to each object model in ShapeNet6D.
+
+NB: ShapeNet6D is not currently supported for evaluation (i.e., the symmetry annotations needed by the BOP toolkit are missing).
+
+## Acknowledgements
+
+This work was supported by the European Union’s Horizon Europe research and innovation programme under grant agreement No 101058589 (AI-PRISM), and made use of time on Tier 2 HPC facility JADE2, funded by EPSRC (EP/T022205/1).
+
+We thank the authors of the following repositories for open-sourcing the code, on which we relied for this project:
+- [CATSeg](https://github.com/KU-CVLAB/CAT-Seg)
+- [PointDSC](https://github.com/XuyangBai/PointDSC)
+- [BOP Toolkit](https://github.com/thodan/bop_toolkit)
+
+
+## Citing Oryon
+
+```BibTeX
+@inproceedings{corsetti2024oryon,
+  title= {Open-vocabulary object 6D pose estimation}, 
+  author = {Corsetti, Jaime and Boscaini, Davide and Oh, Changjae and Cavallaro, Andrea and Poiesi, Fabio},
+  journal = {IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR)},
+  year = {2024}
+}
+```
 
 ## Website License
 The website template is from [Nerfies](https://github.com/nerfies/nerfies.github.io).

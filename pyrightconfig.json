@@ -1,0 +1,22 @@
+{
+    "include": [
+      "**"
+    ],
+    
+    "exclude": [
+      "data/**",
+      "exp_data/**",
+      "pretrained_models/**",
+      "outputs/**",
+      "data/**",
+      "results/**",
+      "configs/**",
+      "bop_toolkit_lib/**",
+      ".vscode/**",
+      "**/__pycache__",
+      "__pyacache__"
+    ],
+    
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+  }

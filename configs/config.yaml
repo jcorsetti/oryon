@@ -1,0 +1,97 @@
+exp_name : baseline
+exp_root : exp_data
+exp_tag : Ours
+use_seed : False
+seed : 1
+device : cuda
+corrs_device: cpu
+
+compute_vsd: True
+viz_valid : False
+debug_valid : False # if True, use ground truth correspondences to get predicted pose!
+profiler: False
+resume_ckpt: none
+
+dataset:
+  root : data
+  batch_size : 32
+  img_size : [224,224]
+  max_corrs: 500
+
+  train:
+    name : shapenet6d
+    split : custom_train
+    obj : all
+  test:
+    name : nocs
+    split : cross_scene_test
+    obj : all
+
+model:
+  use_catseg_ckpt: True
+  
+  image_encoder:        # configs image encoder
+    img_size : [192,192]  # default one of CatSeg
+    out_channels : 32   # features in output
+    extra_upsampling: True
+    vlm: clip 
+    use_decoder_guidance: True
+    use_cost_guidance: True
+    decoder_type: standard
+
+loss:
+  hard_negatives: True
+  pos_margin: 0.2
+  neg_margin: 0.9
+  neg_kernel_size: 5
+  mask_type: dice
+  w:
+    mask: 1.0
+    pos: 0.5
+    neg: 0.5
+
+test:
+  mask: predicted # one of predicted, oracle, ovseg
+  add_description: 'yes'
+  src_sampling : 5000
+  solver: pointdsc
+  n_corrs: ${dataset.max_corrs}
+  dist_th: 0.25
+  mask_threshold: 0.5
+  only_save_masks: False
+  only_save_featmaps: False
+
+optimization:
+  optim_type : Adam # or Adam
+  scheduler_type : cosine 
+  lr : 0.001        # initial lr
+  momentum : 0.     # used only for SGD
+  w_decay : 0.0005 
+  gamma : 0.1       # scale factor for scheduler
+
+training:
+  n_epochs : 20
+  freq_save : 5
+  freq_valid : 5
+
+augs:
+  rgb:
+    jitter : True
+    bright : True
+    hflip : True
+    vflip : True
+  text:
+    synset : True
+
+pretrained:
+  pointdsc: pretrained_models/pointdsc
+  vocabulary: pretrained_models/bpe_simple_vocab_16e6.txt.gz
+  
+eval:
+  ckpt:
+  results:
+
+tmp: # stuff modified during program execution
+  logs_out : 
+  ckpt_out : 
+  results_out : 

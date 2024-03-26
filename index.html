@@ -64,7 +64,7 @@
               <span class="author-block"><sup>4</sup>Idiap Research Institute</span>
               <span class="author-block"><sup>5</sup>EPFL</span>
             </div>
-
+              <h1 class="title is-4 publication-title">CVPR 2024</h1>
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
@@ -77,7 +77,7 @@
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark"  disabled='' style="pointer-events: none">
+                  <a href="https://github.com/jcorsetti/oryon" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -154,21 +154,15 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
           <p>
-            We introduce the new setting of open-vocabulary object 6D pose estimation, in which a textual prompt is used to specify the object of interest. 
-            In contrast to existing approaches, in our setting:
-             (i) the object of interest is specified solely through the textual prompt, 
-             (ii) no object model (e.g. CAD or video sequence) is required at inference, 
-             (iii) the object is imaged from two different viewpoints of two different scenes,
-             (iv) the object was not observed during the training phase. 
-          </p> 
-          <p>
-            To operate in this setting, we introduce a novel approach that leverages a Vision-Language Model to segment the object of interest from two distinct scenes and to estimate its relative 6D pose. 
-            The key of our approach is a carefully devised strategy to fuse object-level information provided by the prompt with local image features, resulting in a feature space that can generalize to novel concepts. 
-          <p>
-          </p>
-            We validate our approach on a new benchmark based on two popular datasets, REAL275 and Toyota-Light, which collectively encompass 39 object instances appearing in four thousand image pairs. 
+            We introduce the new setting of open-vocabulary object 6D pose estimation, in which a textual prompt is used to specify the object of interest.
+            In contrast to existing approaches, in our setting
+            (i) the object of interest is specified solely through the textual prompt,
+            (ii) no object model (e.g.,~CAD or video sequence) is required at inference, and
+            (iii) the object is imaged from two RGBD viewpoints of different scenes.
+            To operate in this setting, we introduce a novel approach that leverages a Vision-Language Model to segment the object of interest from the scenes and to estimate its relative 6D pose.
+            The key of our approach is a carefully devised strategy to fuse object-level information provided by the prompt with local image features, resulting in a feature space that can generalize to novel concepts.
+            We validate our approach on a new benchmark based on two popular datasets, REAL275 and Toyota-Light, which collectively encompass 34 object instances appearing in four thousand image pairs. 
             The results demonstrate that our approach outperforms both a well-established hand-crafted method and a recent deep learning-based baseline in estimating the relative 6D pose of objects in different scenes.
-          </p>
           </div>
         </div>
       </div>
@@ -260,11 +254,11 @@
       <div class="container is-max-desktop content">
         <h2 class="title">Citation</h2>
 If you find Oryon useful for your work, please cite:
-<pre><code>@article{corsetti2023oryon,
+<pre><code>@inproceedings{corsetti2024oryon,
   title= {Open-vocabulary object 6D pose estimation}, 
   author = {Corsetti, Jaime and Boscaini, Davide and Oh, Changjae and Cavallaro, Andrea and Poiesi, Fabio},
-  journal = {arxiv:2312.00690},
-  year= {2023}
+  journal = {IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR)},
+  year = {2024}
 }</code></pre>
       </div>
     </section>  
