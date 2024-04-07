@@ -1,4 +1,4 @@
-# Oryon: Open-Vocabulary Object 6D Pose Estimation
+# Oryon: Open-Vocabulary Object 6D Pose Estimation [CVPR2024 highlight]
 
 This is the repository that contains source code for the [Oryon website](https://jcorsetti.github.io/oryon/) and its implementation.
 This work is to be presented at CVPR'24.
