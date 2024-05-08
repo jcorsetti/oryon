@@ -10,15 +10,6 @@ from PIL import Image
 import pickle
 from utils.pcd import get_diameter
 
-def get_descriptions(root:str) -> dict:
-    '''
-    Return object descriptions from taxonomy.
-    '''
-    with open(join(root,'llava_descs.json')) as f:
-        descs = json.load(f)
-
-    return descs
-
 def get_instance2cat_id(root: str) -> dict:
     with open(f'{root}/instance2cat.json') as f:
         return json.load(f)

@@ -283,7 +283,6 @@ class Shapenet6DDataset(Dataset):
         self.annots = shapenet.load_annotations(local_root)
         self.metadata = shapenet.get_metadata(local_root)
         self.cat2instance_id = shapenet.get_instance2cat_id(local_root)
-        self.obj_descs = shapenet.get_descriptions(local_root)
 
     def init_eval(self):
         '''
