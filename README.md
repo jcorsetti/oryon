@@ -1,12 +1,14 @@
 # Oryon: Open-Vocabulary Object 6D Pose Estimation [CVPR2024 highlight]
 
+**🔥🔥🔥Check out the new [Oryon version](https://arxiv.org/abs/2406.16384) technical report!**
+
 This is the repository that contains source code for the [Oryon website](https://jcorsetti.github.io/oryon/) and its implementation.
-This work is to be presented at CVPR'24.
+This work featured as highlight paper at CVPR'24.
 
 
 ## Roadmap
 
-- 25/06/24: 🔥New🔥 [Oryon version](https://arxiv.org/abs/2406.16384) technical report is out!
+- 25/06/24: New [Oryon version](https://arxiv.org/abs/2406.16384) released
 - 26/03/24: Code released 
 - 07/12/23: Added test and train splits
 - 04/12/23: Website and arxiv released
