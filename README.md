@@ -6,9 +6,10 @@ This work is to be presented at CVPR'24.
 
 ## Roadmap
 
-- Code release: 26 March 2024 
-- Added test and train splits: 7 Dec 2023
-- Website and arxiv released: 4 Dec 2023
+- 25/06/24: 🔥New🔥 [Oryon version](https://arxiv.org/abs/2406.16384) technical report is out!
+- 26/03/24: Code released 
+- 07/12/23: Added test and train splits
+- 04/12/23: Website and arxiv released
 
 ## Installation
 
