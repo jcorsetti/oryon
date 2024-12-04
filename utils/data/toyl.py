@@ -85,7 +85,7 @@ def get_obj_rendering(root: str, obj_id: int) -> dict:
 
 def get_obj_names(root: str) -> dict:
 
-    with open(join(root,'models_bop/models_name.json')) as f:
+    with open(join(root,'models_name.json')) as f:
         return json.load(f)
 
 def get_part_data(root: str) -> dict:
