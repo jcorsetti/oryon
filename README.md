@@ -83,7 +83,10 @@ By default this will create the `toyl` folder in `data`, and can be changed by m
 
 ### ShapeNet6D
 
-Download the images from the official repository of [ShapeNet6D](https://github.com/ethnhe/FS6D-PyTorch), and the object models of ShapeNet from [HuggingFace](https://huggingface.co/datasets/ShapeNet/ShapeNetSem-archive).
+Please agree to the ShapeNet [Terms of Use](https://huggingface.co/datasets/ShapeNet/ShapeNetSem-archive) prior to downloading it.
+Download the images from the official repository of [ShapeNet6D](https://github.com/ethnhe/FS6D-PyTorch) (see [this link](https://hkustconnect-my.sharepoint.com/personal/yhebk_connect_ust_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyhebk%5Fconnect%5Fust%5Fhk%2FDocuments%2Fpublically%20shared%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%2FFS6D&ga=1), the file is shapenet6d.zip).
+
+Download the object models of ShapeNet from [HuggingFace](https://huggingface.co/datasets/ShapeNet/ShapeNetSem-archive) (ShapeNetSem.zip).
 
 Run the `prepare_sn6d.sh` script to unzip and run the preprocessing.
 

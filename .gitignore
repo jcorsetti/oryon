@@ -1,0 +1,8 @@
+**/__pycache__/**
+data/**
+exp_data/**
+lightning_logs/**
+bop_toolkit_lib/**
+outputs/**
+pretrained_models/**
+*.zip
