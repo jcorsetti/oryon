@@ -8,7 +8,7 @@ This work featured as highlight paper at CVPR'24.
 
 ## Roadmap
 
-- 25/06/24: New [Oryon version](https://arxiv.org/abs/2406.16384) released
+- 25/06/24: New [Oryon version](https://arxiv.org/abs/2406.16384) technical report released
 - 26/03/24: Code released 
 - 07/12/23: Added test and train splits
 - 04/12/23: Website and arxiv released
@@ -94,6 +94,16 @@ Note that each image of ShapeNet6D shows a different random background, so that 
 ShapeNet6D provides a map from their object ids to the object ids of the original ShapeNetSem: we use this map to associated the object name and synonym sets of ShapeNetSem to each object model in ShapeNet6D.
 
 NB: ShapeNet6D is not currently supported for evaluation (i.e., the symmetry annotations needed by the BOP toolkit are missing).
+
+## Papers comparing with Oryon
+
+In the following table we report a list of papers that use Oryon as comparison. Feel free to reach out to add your own.
+
+| Paper Title                                                                                                               | Venue |
+|---------------------------------------------------------------------------------------------------------------------------| ----------------------|
+| [Any6D: Model-free 6D Pose Estimation of Novel Objects](https://arxiv.org/abs/2503.18673) | CVPR, 2025|
+| [One2Any: One-Reference 6D Pose Estimation for Any Object](https://arxiv.org/abs/2505.04109) | CVPR, 2025| 
+| [High-resolution open-vocabulary object 6D pose estimation](https://arxiv.org/abs/2406.16384) | arxiv, 2024|
 
 ## Acknowledgements
 
